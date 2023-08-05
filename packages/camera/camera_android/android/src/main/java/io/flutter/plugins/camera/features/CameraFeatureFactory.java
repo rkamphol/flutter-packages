@@ -82,7 +82,8 @@ public interface CameraFeatureFactory {
   ResolutionFeature createResolutionFeature(
       @NonNull CameraProperties cameraProperties,
       @NonNull ResolutionPreset initialSetting,
-      @NonNull String cameraName);
+      @NonNull String cameraName,
+      @NonNull Activity activity);
 
   /**
    * Creates a new instance of the focus point feature.
