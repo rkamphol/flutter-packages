@@ -287,7 +287,7 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
         StreamConfigurationMap streamConfig = characteristics.get(
           CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP
         );
-        Size[] imageSizes = streamConfig.getOutputSizes(ImageFormat.JPEG);
+        Size[] imageSizes = streamConfig.getHighResolutionOutputSizes(ImageFormat.JPEG);
         int maxMegapixel = 0;
         for(int i = 0; i < imageSizes.length; i++) {
           Log.d("camera resolution: ", imageSizes[i].toString());
@@ -338,6 +338,8 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
             new Size(recordingProfileLegacy.videoFrameWidth, recordingProfileLegacy.videoFrameHeight);
       }
     }
+
+    Log.d( "aiiot: resolution capture size ", captureSize.toString() );
 
     previewSize = computeBestPreviewSize(cameraId, resolutionPreset);
   }
