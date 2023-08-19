@@ -296,6 +296,10 @@ public class ResolutionFeature extends CameraFeature<ResolutionPreset> {
             maxMegapixel = imageSizes[i].getWidth() * imageSizes[i].getHeight();
           }
           // hacked: always fix photo resolution with 16:9 ratios
+          if (imageSizes[i].getWidth() == 4096 && imageSizes[i].getHeight() == 2304) {
+            actualMaxResolution = imageSizes[ i ];
+            break;
+          }          
           if (imageSizes[i].getWidth() == 4080 && imageSizes[i].getHeight() == 2296) {
             actualMaxResolution = imageSizes[ i ];
             break;
